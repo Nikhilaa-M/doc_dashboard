@@ -2,6 +2,7 @@ import os
 from langchain_openai import OpenAIEmbeddings
 from pymongo.mongo_client import MongoClient
 from dotenv import load_dotenv
+import streamlit as st
 
 load_dotenv()
 
