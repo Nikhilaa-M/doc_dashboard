@@ -6,6 +6,7 @@ from dotenv import load_dotenv
 load_dotenv()
 from embedding import store_question_answer
 import os
+import json
 
 #firebase_config = "animal-bites.json"
 '''firebase_config = os.environ.get("FIREBASE_CONFIG")
