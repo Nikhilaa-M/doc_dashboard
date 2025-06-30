@@ -8,12 +8,26 @@ from embedding import store_question_answer
 import os
 
 #firebase_config = "animal-bites.json"
-firebase_config = os.environ.get("FIREBASE_CONFIG")
+'''firebase_config = os.environ.get("FIREBASE_CONFIG")
 
 if not firebase_admin._apps:
     cred = credentials.Certificate(firebase_config)
     firebase_admin.initialize_app(cred)
 
+db = firestore.client()'''
+
+firebase_config_dict = st.secrets["FIREBASE_CONFIG"]
+
+# Convert to a proper JSON-like dictionary (optional: write to temp file)
+with open("firebase_temp.json", "w") as f:
+    json.dump(firebase_config_dict, f)
+
+# Initialize Firebase
+if not firebase_admin._apps:
+    cred = credentials.Certificate("firebase_temp.json")
+    firebase_admin.initialize_app(cred)
+
+# Connect to Firestore
 db = firestore.client()
 
 def doctor_dashboard():
