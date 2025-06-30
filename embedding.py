@@ -6,8 +6,11 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Load environment variables
-MONGO_URI = os.environ.get("MONGODB_URI")
-openai_api_key = os.environ.get("OPENAI_KEY")
+#MONGO_URI = os.environ.get("MONGODB_URI")
+#openai_api_key = os.environ.get("OPENAI_KEY")
+
+MONGO_URI = st.secrets["MONGODB_URI"]
+openai_api_key = st.secrets["OPENAI_KEY"]
 
 if not MONGO_URI or not openai_api_key:
     raise ValueError("MONGODB_URI and OPENAI_KEY must be set in environment variables.")
