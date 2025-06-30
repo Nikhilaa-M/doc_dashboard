@@ -8,15 +8,6 @@ from embedding import store_question_answer
 import os
 import json
 
-#firebase_config = "animal-bites.json"
-'''firebase_config = os.environ.get("FIREBASE_CONFIG")
-
-if not firebase_admin._apps:
-    cred = credentials.Certificate(firebase_config)
-    firebase_admin.initialize_app(cred)
-
-db = firestore.client()'''
-
 firebase_config = st.secrets["FIREBASE_CONFIG"]
 
 if isinstance(firebase_config, str):
