@@ -17,14 +17,14 @@ if not firebase_admin._apps:
 
 db = firestore.client()'''
 
-firebase_config_dict = st.secrets["FIREBASE_CONFIG"]
+firebase_config = st.secrets["FIREBASE_CONFIG"]
 
 if isinstance(firebase_config, str):
     firebase_config = json.loads(firebase_config)
 
 # Convert to a proper JSON-like dictionary (optional: write to temp file)
 with open("firebase_temp.json", "w") as f:
-    json.dump(firebase_config_dict, f)
+    json.dump(firebase_config, f)
 
 # Initialize Firebase
 if not firebase_admin._apps:
